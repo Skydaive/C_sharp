@@ -7,29 +7,19 @@
 // 12821 -> да
 // 23432 -> да
 
-void CheckPalindromicNumber(int number)
+int num,r,sum=0,t;
+Console.Write("Введите пятизначное число");
+num = Convert.ToInt32(Console.ReadLine());
+if(num>9999 && num<100000)
 {
-if(number >= 10000)
+for(t=num;num!=0;num=num/10)
 {
-int division1 = number / 10000;
-
-
-int remainder1 = number % 10;
-
-if(division1 == remainder1)
-{
-number = number / 10;
-int division2 = (number / 100) % 10;
-int remainder2 = number % 10;
-if(division2 == remainder2)
-Console.WriteLine("Да");
+r=num % 10;
+sum=sum*10+r;
 }
-else 
-Console.WriteLine("Нет");
-}
+if(t==sum)
+Console.Write($"{t} Да");
 else
-Console.WriteLine("Некорректное число!");
-}
- Console.WriteLine("Введите пятизначное число:");
-int number = int.Parse(Console.ReadLine()!);
-CheckPalindromicNumber(number);
+Console.Write($"{t} Нет");
+} else
+Console.Write("Введите пятизначное число");
